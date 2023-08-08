@@ -4,13 +4,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { CatListingComponent } from './components/cat-listing/cat-listing.component'
+import { CatListingComponent } from './components/cat-listing/cat-listing.component';
+import { IncidentListingComponent } from './components/incident-listing/incident-listing.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { CatDetailComponent } from './components/cat-detail/cat-detail.component';
+import { IncidentDetailComponent } from './components/incident-detail/incident-detail.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    CatListingComponent
+    CatListingComponent,
+    IncidentListingComponent,
+    ProfileComponent,
+    CatDetailComponent,
+    IncidentDetailComponent
   ],
   imports: [
     BrowserModule,
