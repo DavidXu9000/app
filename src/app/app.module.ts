@@ -8,7 +8,10 @@ import { CatListingComponent } from './components/cat-listing/cat-listing.compon
 import { IncidentListingComponent } from './components/incident-listing/incident-listing.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CatDetailComponent } from './components/cat-detail/cat-detail.component';
-import { IncidentDetailComponent } from './components/incident-detail/incident-detail.component'
+import { IncidentDetailComponent } from './components/incident-detail/incident-detail.component';
+import { HomeComponent } from './components/home/home.component';
+import { CatCreateComponent } from './components/cat-create/cat-create.component';
+import { IncidentCreateComponent } from './components/incident-create/incident-create.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { IncidentDetailComponent } from './components/incident-detail/incident-d
     IncidentListingComponent,
     ProfileComponent,
     CatDetailComponent,
-    IncidentDetailComponent
+    IncidentDetailComponent,
+    HomeComponent,
+    CatCreateComponent,
+    IncidentCreateComponent
   ],
   imports: [
     BrowserModule,

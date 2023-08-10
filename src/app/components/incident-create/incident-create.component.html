@@ -4,7 +4,12 @@
         <form class="row">
             <div class="col-md-12 mb-3">
                 <label for="cat" class="form-label">Cat</label>
-                <input class="form-control" id="cat" value="Maxwell" readonly>
+                <select class="form-select" id="cat">
+                    <option selected>Select an option...</option>
+                    <option>Bingus</option>
+                    <option>Bongus</option>
+                    <option>Maxwell</option>
+                </select>
             </div>
 
             <div class="col-12 mb-3">
@@ -38,10 +43,7 @@
                 <input type="text" class="form-control" id="day" placeholder="10">
             </div>
             <div class="col-auto">
-                <button class="btn btn-primary" type="submit">Update</button>
-            </div>
-            <div class="col-auto">
-                <button class="btn btn-danger" type="submit">Delete</button>
+                <button class="btn btn-primary" type="submit">Create</button>
             </div>
         </form>
     </div>
