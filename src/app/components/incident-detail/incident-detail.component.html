@@ -1,47 +1,32 @@
 <div class="py-5 bg-body-tertiary">
     <div class="container">
-        <h1>New Incident</h1>
-        <form class="row">
+        <h1>Incident</h1>
+        <form class="row" [formGroup]="createForm">
             <div class="col-md-12 mb-3">
-                <label for="cat" class="form-label">Cat</label>
-                <input class="form-control" id="cat" value="Maxwell" readonly>
+                <input class="form-control" type="text" value="{{cat.name}}" [readOnly]="true">
             </div>
 
-            <div class="col-12 mb-3">
-                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_dark_color_272x92dp.png" class="img-thumbnail">
+            <div *ngIf="cat.pictureId" class="col-12 mb-3">
+                <img src="/catImage/{{cat.id}}" class="img-thumbnail">
             </div>
 
             <div class="col-auto">
                 <label class="form-label" for="year">Year</label>
-                <input type="text" class="form-control" id="year" placeholder="2011">
+                <input type="text" class="form-control" id="year" formControlName="year">
             </div>
             <div class="col-auto">
                 <label class="form-label" for="month">Month</label>
-                <select class="form-select" id="month">
-                    <option selected>Choose...</option>
-                    <option value="1">Jan</option>
-                    <option value="2">Feb</option>
-                    <option value="3">Mar</option>
-                    <option value="4">Apr</option>
-                    <option value="5">May</option>
-                    <option value="6">Jun</option>
-                    <option value="7">Jul</option>
-                    <option value="8">Aug</option>
-                    <option value="9">Sept</option>
-                    <option value="10">Oct</option>
-                    <option value="11">Nov</option>
-                    <option value="12">Dec</option>
-                </select>
+                <input type="text" class="form-control" id="month" formControlName="month">
             </div>
             <div class="col-auto mb-3">
                 <label class="form-label" for="day">Day</label>
-                <input type="text" class="form-control" id="day" placeholder="10">
+                <input type="text" class="form-control" id="day" formControlName="day">
             </div>
             <div class="col-auto">
-                <button class="btn btn-primary" type="submit">Update</button>
+                <button class="btn btn-primary" type="submit" (submit)="patchIncident()">Update</button>
             </div>
             <div class="col-auto">
-                <button class="btn btn-danger" type="submit">Delete</button>
+                <button class="btn btn-danger" type="submit" (submit)="deleteIncident()">Delete</button>
             </div>
         </form>
     </div>
