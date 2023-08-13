@@ -10,10 +10,10 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                <tr>
-                    <td>Maxwell</td>
-                    <td>10/10/10</td>
-                    <td><a routerLink="/incident/sus" class="btn btn-sm btn-outline-secondary">View and Edit</a></td>
+                <tr *ngFor="let incident in incidents">
+                    <td><a routerLink="/cat/{{ incident.catId }}">{{ incident.name }}</a></td>
+                    <td>{{ incident.date }}</td>
+                    <td><a routerLink="/incident/{{ incident.catId }}" class="btn btn-sm btn-outline-secondary">View and Edit</a></td>
                 </tr>
             </tbody>
         </table>

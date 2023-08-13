@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Incident } from '../common/incident';
+import { Cat } from '../common/cat';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,10 @@ export class IncidentService {
 
   getIncidentById(id: number) {
     return this.http.get<Incident>(this.baseUrl + '/' + id);
+  }
+
+  getCatByIncidentId(id: number) {
+    return this.http.get<Cat>(this.baseUrl + '/' + id + '/cat')
   }
 
   patchIncident(incident: Incident) {
