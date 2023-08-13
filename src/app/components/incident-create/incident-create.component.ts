@@ -33,7 +33,7 @@ export class IncidentCreateComponent implements OnInit{
   }
 
   postIncident() {
-    this.incidentService.postIncident(new Incident(0, this.createForm.value.cat.id, this.createForm.value.cat.userId, new Date(this.createForm.value.year, this.createForm.value.month, this.createForm.value.day)))
+    this.incidentService.postIncident(new Incident(0, this.createForm.value.cat.id, this.createForm.value.cat.userId, new Date(this.createForm.value.year, this.createForm.value.month, this.createForm.value.day), this.createForm.value.cat.name))
   }
 
 
