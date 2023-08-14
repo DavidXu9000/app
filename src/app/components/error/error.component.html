@@ -1,0 +1,10 @@
+<div class="py-5 bg-body-tertiary">
+    <div class="container">
+        <h1>{{ errorNumber }}</h1>
+        <p *ngIf="errorNumber == 404 else internal">The resource does not exist.</p>
+        <ng-template #internal>
+
+            <p>An internal error has occurred. Please try again later.</p>
+        </ng-template>
+    </div>
+</div>

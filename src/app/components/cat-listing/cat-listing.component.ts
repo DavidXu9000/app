@@ -16,12 +16,12 @@ export class CatListingComponent implements OnInit{
   constructor(private catService: CatService, private router: Router) { }
 
   ngOnInit(): void {
-    this.catService.getCatList().pipe(catchError(this.handleError)).subscribe((response) => {
+    this.catService.getCatList().pipe(catchError((error) => this.handleError(error))).subscribe((response) => {
       this.cats = response._embedded.cats;
     })
   }
 private handleError(error: HttpErrorResponse) {
-    this.router.navigateByUrl('/error');
+    this.router.navigateByUrl('/error/404');
     return throwError(() => new Error('Could not process the request.'));
   }
 }

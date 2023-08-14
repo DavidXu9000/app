@@ -4,5 +4,6 @@ export interface Profile {
     user_id: string,
     user_metadata: {
         picture: string
-    }
+    },
+    email: string;
 }

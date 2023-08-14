@@ -12,6 +12,6 @@ export class UserService {
     const formData: FormData = new FormData();
     formData.append('userId', id);
     formData.append('image', file);
-    return this.http.post<void>('/userImage', formData);
+    return this.http.post<void>('/user-image', formData);
   }
 }

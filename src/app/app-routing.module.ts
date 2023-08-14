@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CatCreateComponent } from './components/cat-create/cat-create.component';
 import { IncidentCreateComponent } from './components/incident-create/incident-create.component';
+import { ErrorComponent } from './components/error/error.component';
 
 const routes: Routes = [
   { path: "cat/:id", component: CatDetailComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: "cat", component: CatListingComponent },
   { path: "profile", component: ProfileComponent },
   { path: "home", component: HomeComponent },
+  { path: "error/:id", component: ErrorComponent},
   { path: "**", redirectTo: "/home" }
 ];
 

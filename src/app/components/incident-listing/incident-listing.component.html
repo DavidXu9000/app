@@ -1,7 +1,7 @@
 <div class="py-5 bg-body-tertiary">
     <div class="container">
         <h2>Incidents</h2>
-        <table class="table shadow-sm table-striped table-hover">
+        <table class="table shadow-sm table-striped table-hover mb-3">
             <thead>
                 <tr>
                     <th>Cat</th>
@@ -10,12 +10,14 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                <tr *ngFor="let incident in incidents">
-                    <td><a routerLink="/cat/{{ incident.catId }}">{{ incident.name }}</a></td>
+                <tr *ngFor="let incident of incidents">
+                    <td><a routerLink="/cat/{{ incident.catId }}">{{ incident.catName }}</a></td>
                     <td>{{ incident.date }}</td>
                     <td><a routerLink="/incident/{{ incident.catId }}" class="btn btn-sm btn-outline-secondary">View and Edit</a></td>
                 </tr>
             </tbody>
         </table>
+        <a routerLink="/create/incident" class="btn btn-outline-secondary btn-sm">New Incident</a>
+
     </div>
 </div>

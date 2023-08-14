@@ -24,7 +24,7 @@ export class CatDetailComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id === undefined || !Number.isInteger(id)) {
-      this.router.navigateByUrl('/404');
+      this.router.navigateByUrl('/error/404');
       return;
     }
     this.catService.getCatById(parseInt(id!)).pipe(catchError(this.handleError)).subscribe((cat) => {
@@ -58,7 +58,7 @@ export class CatDetailComponent implements OnInit {
   }
 
   private handleError(error: HttpErrorResponse) {
-    this.router.navigateByUrl('/error');
+    this.router.navigateByUrl('/error/404');
     return throwError(() => new Error('Could not process the request.'));
   }
 }

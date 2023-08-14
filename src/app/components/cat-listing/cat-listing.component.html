@@ -1,9 +1,9 @@
 <div class="py-5 bg-body-tertiary">
   <div class="container">
     <h2>Cats</h2>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-3">
       <!-- This is the main thing for the loop -->
-      <div *ngFor="let cat in cats" class="col">
+      <div *ngFor="let cat of cats" class="col">
         <div class="card shadow-sm">
           <!-- Cat picture -->
           <div *ngIf="cat.pictureId" class="col-12 mb-3">
@@ -23,5 +23,6 @@
         </div>
       </div>
     </div>
+    <a class="btn-outline-secondary btn btn-sm" routerLink="/create/cat">New Cat</a>
   </div>
 </div>

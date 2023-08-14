@@ -24,6 +24,7 @@ export class CatCreateComponent {
       picture: new FormControl('')
     });
   }
+  
 
   changeFile(event: any) {
     this.selectedFile = event.target.files.item(0);
@@ -36,7 +37,7 @@ export class CatCreateComponent {
   }
 
   private handleError(error: HttpErrorResponse) {
-    this.router.navigateByUrl('/error');
+    this.router.navigateByUrl('/error/404');
     return throwError(() => new Error('Could not process the request.'));
   }
 }

@@ -1,2 +1,25 @@
-<app-cat-listing></app-cat-listing>
-<app-incident-listing></app-incident-listing>
+<div *ngIf="isLoggedIn(); else infoPage">
+  <app-cat-listing></app-cat-listing>
+  <app-incident-listing></app-incident-listing>
+</div>
+
+<ng-template #infoPage>
+  <div class="py-5 bg-body-tertiary">
+    <div class="container">
+      <h1 class="display-1 mb-5">Track your cat's vomit 🤮.</h1>
+      <p class="lead mb-5">
+        Worried about how often your cat vomits? Keep track of your cat's
+        health, identify vomit sounds with AI, and get a detailed view of how
+        often your cat really throws up.
+      </p>
+      <div class="position-relative">
+        <div
+          class="btn-group position-absolute top-0 start-50 translate-middle"
+        >
+          <button class="btn btn-lg btn-outline-primary">Register</button>
+          <button class="btn btn-lg btn-outline-success" (click)="login()">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CatCreateComponent } from './components/cat-create/cat-create.component';
 import { IncidentCreateComponent } from './components/incident-create/incident-create.component'
 import { ReactiveFormsModule } from '@angular/forms';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     IncidentDetailComponent,
     HomeComponent,
     CatCreateComponent,
-    IncidentCreateComponent
+    IncidentCreateComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

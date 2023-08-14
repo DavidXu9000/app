@@ -41,7 +41,7 @@ export class CatService {
     const formData: FormData = new FormData();
     formData.append('catId', id.toString());
     formData.append('image', file);
-    return this.http.post<void>('/catImage', formData);
+    return this.http.post<void>('/cat-image', formData);
   }
 
 }

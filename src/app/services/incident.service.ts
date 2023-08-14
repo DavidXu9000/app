@@ -10,7 +10,7 @@ export class IncidentService {
 
   constructor(private http: HttpClient) { }
 
-  baseUrl: string = '/incidents'
+  baseUrl: string = '/api/incidents'
 
   getIncidentPaginate(page: number, pageSize: number) {
     let queryString = `?page=${page}&pageSize=${pageSize}`;
