@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  postImage(id: string, file: File) {
+    const formData: FormData = new FormData();
+    formData.append('userId', id);
+    formData.append('image', file);
+    return this.http.post<void>('/userImage', formData);
+  }
 }

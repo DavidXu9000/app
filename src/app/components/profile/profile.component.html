@@ -14,7 +14,7 @@
                 <label for="pictureFile" class="form-label">Picture</label>
                 <input type="file" class="form-control" id="pictureFile" accept="image/png, image/jpg, image/gif" (change)="changeFile($event)" formControlName="picture">
             </div>
-            <div class="col-12 mb-3" *ngIf="profile.user_metadata.picture">
+            <div class="col-12 mb-3" *ngIf="profile.user_metadata.picture !== ''">
                 <img src="/userImage/{{ profile.user_id }}" class="img-thumbnail">
             </div>
             <div class="col-auto">

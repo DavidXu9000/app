@@ -38,7 +38,7 @@ export class IncidentDetailComponent implements OnInit {
   }
 
   patchIncident() {
-    this.incidentService.patchIncident(new Incident(0, this.incident.catId, this.incident.userId, new Date(this.createForm.value.year, this.createForm.value.month, this.createForm.value.day)))
+    this.incidentService.patchIncident(new Incident(0, this.incident.catId, this.incident.userId, new Date(this.createForm.value.year, this.createForm.value.month, this.createForm.value.day), this.incident.catName))
   }
 
   deleteIncident() {
