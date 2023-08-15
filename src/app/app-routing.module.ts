@@ -20,7 +20,8 @@ const routes: Routes = [
   { path: "profile", component: ProfileComponent },
   { path: "home", component: HomeComponent },
   { path: "error/:id", component: ErrorComponent},
-  { path: "**", redirectTo: "/home" }
+  { path: "", pathMatch: 'full', redirectTo: "/home"},
+  { path: "**", redirectTo: "/error/404" }
 ];
 
 @NgModule({

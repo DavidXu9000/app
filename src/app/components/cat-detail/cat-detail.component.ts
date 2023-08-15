@@ -23,11 +23,11 @@ export class CatDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (id === undefined || !Number.isInteger(id)) {
+    if (id === undefined || !Number.isInteger(parseInt(id!))) {
       this.router.navigateByUrl('/error/404');
       return;
     }
-    this.catService.getCatById(parseInt(id!)).pipe(catchError(this.handleError)).subscribe((cat) => {
+    this.catService.getCatById(parseInt(id!)).pipe(catchError((error) => this.handleError(error))).subscribe((cat) => {
       this.cat = cat;
       this.updateForm = this.fb.nonNullable.group({
         name: new FormControl(this.cat.name, [Validators.required]),
@@ -41,10 +41,10 @@ export class CatDetailComponent implements OnInit {
   }
 
   patchCat() {
-    this.catService.patchCat(new Cat(0, this.cat!.userId, '', this.updateForm.value.name)).pipe(catchError(this.handleError)).subscribe((cat) => {
+    this.catService.patchCat(new Cat(0, this.cat!.userId, '', this.updateForm.value.name)).pipe(catchError((error) => this.handleError(error))).subscribe((cat) => {
       this.cat = cat;
-      this.catService.postImage(this.cat!.id, this.selectedFile).pipe(catchError(this.handleError)).subscribe(() => {
-        this.catService.getCatById(this.cat!.id).pipe(catchError(this.handleError)).subscribe((cat) => {
+      this.catService.postImage(this.cat!.id, this.selectedFile).pipe(catchError((error) => this.handleError(error))).subscribe(() => {
+        this.catService.getCatById(this.cat!.id).pipe(catchError((error) => this.handleError(error))).subscribe((cat) => {
           this.cat = cat;
         })
       })
@@ -52,13 +52,15 @@ export class CatDetailComponent implements OnInit {
   }
 
   deleteCat() {
-    this.catService.deleteCat(this.cat!).pipe(catchError(this.handleError)).subscribe(() => {
+    this.catService.deleteCat(this.cat!).pipe(catchError((error) => this.handleError(error))).subscribe(() => {
       this.router.navigateByUrl('/cat')
     });
   }
 
   private handleError(error: HttpErrorResponse) {
-    this.router.navigateByUrl('/error/404');
+    if (error.status == 404) {
+      this.router.navigateByUrl("/error/404")
+    }
     return throwError(() => new Error('Could not process the request.'));
   }
 }

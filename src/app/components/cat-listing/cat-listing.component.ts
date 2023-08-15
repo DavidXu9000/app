@@ -10,8 +10,9 @@ import { CatService } from 'src/app/services/cat.service';
   templateUrl: './cat-listing.component.html',
   styleUrls: ['./cat-listing.component.css']
 })
-export class CatListingComponent implements OnInit{
-  cats!: Cat[];
+export class CatListingComponent implements OnInit {
+  cats: Cat[] = [];
+  componentError: boolean = false;
 
   constructor(private catService: CatService, private router: Router) { }
 
@@ -20,8 +21,8 @@ export class CatListingComponent implements OnInit{
       this.cats = response._embedded.cats;
     })
   }
-private handleError(error: HttpErrorResponse) {
-    this.router.navigateByUrl('/error/404');
+  private handleError(error: HttpErrorResponse) {
+    this.componentError = true;
     return throwError(() => new Error('Could not process the request.'));
   }
 }

@@ -10,7 +10,7 @@ export class CatService {
 
   constructor(private http: HttpClient) { }
 
-  baseUrl: string = "/api/cats";
+  baseUrl: string = "http://localhost:8080/api/cats";
   
   getCatById(id: number): Observable<Cat> {
     return this.http.get<Cat>(this.baseUrl + '/' + id);

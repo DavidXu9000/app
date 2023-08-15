@@ -12,7 +12,7 @@
                     formControlName="picture" (change)="changeFile($event)">
             </div>
             <div *ngIf="cat.pictureId !== ''" class="col-12 mb-3">
-                <img src="/catImage/{{ cat.id }}" class="img-thumbnail">
+                <img src="http://localhost:8080/api/cat-image/1" class="img-thumbnail">
             </div>
             <div class="col-auto">
                 <button class="btn btn-primary" type="submit" (submit)="patchCat()">Update</button>
@@ -24,7 +24,7 @@
     </div>
     <ng-template #errorContent>
         <div class="container">
-            <h1>ERROR HAHAHAHAHA</h1>
+            <h4>An error occurred when retrieving the cat. Ensure that the cat exists and update any old links.</h4>
         </div>
     </ng-template>
 </div>

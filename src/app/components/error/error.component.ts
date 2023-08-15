@@ -13,7 +13,7 @@ export class ErrorComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (id === undefined || !Number.isInteger(id)) {
+    if (id === undefined || !Number.isInteger(parseInt(id!))) {
       this.router.navigateByUrl('/error/404');
       return;
     }

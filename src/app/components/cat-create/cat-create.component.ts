@@ -24,20 +24,22 @@ export class CatCreateComponent {
       picture: new FormControl('')
     });
   }
-  
+
 
   changeFile(event: any) {
     this.selectedFile = event.target.files.item(0);
   }
 
   postCat() {
-    this.catService.postCat(new Cat(0, '', '', this.updateForm.value.name)).pipe(catchError(this.handleError)).subscribe((cat) => {
-      this.catService.postImage(cat.id, this.selectedFile).pipe(catchError(this.handleError)).subscribe();
+    this.catService.postCat(new Cat(0, '', '', this.updateForm.value.name)).pipe(catchError((error) => this.handleError(error))).subscribe((cat) => {
+      this.catService.postImage(cat.id, this.selectedFile).pipe(catchError((error) => this.handleError(error))).subscribe();
     })
   }
 
   private handleError(error: HttpErrorResponse) {
-    this.router.navigateByUrl('/error/404');
+    if (error.status == 404) {
+      this.router.navigateByUrl('/error/404');
+    }
     return throwError(() => new Error('Could not process the request.'));
   }
 }
