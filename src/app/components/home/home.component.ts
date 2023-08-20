@@ -16,6 +16,6 @@ export class HomeComponent {
   }
 
   login() {
-    this.auth.login()
+
   }
 }

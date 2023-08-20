@@ -1,7 +1,7 @@
 <div class="py-5 bg-body-tertiary">
     <div class="container">
         <h1>New Incident</h1>
-        <form class="row" [formGroup]="createForm">
+        <form class="row" [formGroup]="createForm" (ngSubmit)="postIncident()">
             <div class="col-md-12 mb-3">
                 <label for="cat" class="form-label">Cat</label>
                 <select class="form-select" id="cat" formControlName="cat" (change)="changeCat($event)">
@@ -11,7 +11,7 @@
             </div>
 
             <div *ngIf="createForm.value.cat.picture" class="col-12 mb-3">
-                <img src="/catImage/{{createForm.value.cat.id}}" class="img-thumbnail">
+                <img src="http://localhost:8080/api/cat-image/{{createForm.value.cat.id}}" class="img-thumbnail">
             </div>
 
             <div class="col-auto">
@@ -27,8 +27,11 @@
                 <input type="text" class="form-control" id="day" formControlName="day">
             </div>
             <div class="col-auto">
-                <button class="btn btn-primary" type="submit" (submit)="postIncident()">Create</button>
+                <button class="btn btn-primary" type="submit">Create</button>
             </div>
         </form>
+    </div>
+    <div class="container" *ngIf="!formValid">
+        <p class="text-danger">Errors exist in the form. Please fix and resubmit.</p>
     </div>
 </div>

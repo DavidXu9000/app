@@ -2,38 +2,37 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cat } from '../common/cat';
 import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CatService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
-  baseUrl: string = "http://localhost:8080/api/cats";
+  baseUrl: string = "/api/cats";
   
   getCatById(id: number): Observable<Cat> {
     return this.http.get<Cat>(this.baseUrl + '/' + id);
   }
 
-  getCatListPaginate(pageNum: number, pageSize: number): Observable<GetResponseCats> {
-    let queryString = `page=${pageNum}&size=${pageSize}`;
-    return this.http.get<GetResponseCats>(this.baseUrl + queryString);
-  }
-
-  getCatList(): Observable<GetResponseCats> {
-    return this.http.get<GetResponseCats>(this.baseUrl);
+  getCatList(): Observable<Cat[]> {
+    return this.http.get<Cat[]>(this.baseUrl + '/getByUserId');
   }
 
   postCat(cat: Cat): Observable<Cat> {
+    alert("" + cat)
     return this.http.post<Cat>(this.baseUrl, cat);
   }
 
   patchCat(cat: Cat) {
+    alert("" + cat)
     return this.http.patch<Cat>(this.baseUrl + '/' + cat.id, cat);
   }
 
   deleteCat(cat: Cat) {
+    alert("" + cat)
     return this.http.delete<void>(this.baseUrl + '/' + cat.id);
   }
 
@@ -41,7 +40,7 @@ export class CatService {
     const formData: FormData = new FormData();
     formData.append('catId', id.toString());
     formData.append('image', file);
-    return this.http.post<void>('/cat-image', formData);
+    return this.http.post<void>('http://localhost:8080/api/cat-image', formData, );
   }
 
 }

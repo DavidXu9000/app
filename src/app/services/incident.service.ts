@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Incident } from '../common/incident';
 import { Cat } from '../common/cat';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IncidentService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   baseUrl: string = '/api/incidents'
 
@@ -18,7 +19,7 @@ export class IncidentService {
   }
 
   getIncidents() {
-    return this.http.get<GetResponseIncidents>(this.baseUrl);
+    return this.http.get<GetResponseIncidents>(this.baseUrl + '/search/findByCatUser?catUser=' + this.authService.userId);
   }
 
   getIncidentById(id: number) {

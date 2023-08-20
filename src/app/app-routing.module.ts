@@ -9,6 +9,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { CatCreateComponent } from './components/cat-create/cat-create.component';
 import { IncidentCreateComponent } from './components/incident-create/incident-create.component';
 import { ErrorComponent } from './components/error/error.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: "cat/:id", component: CatDetailComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: "profile", component: ProfileComponent },
   { path: "home", component: HomeComponent },
   { path: "error/:id", component: ErrorComponent},
+  { path: "login", component: LoginComponent},
   { path: "", pathMatch: 'full', redirectTo: "/home"},
   { path: "**", redirectTo: "/error/404" }
 ];

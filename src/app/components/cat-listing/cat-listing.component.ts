@@ -18,7 +18,7 @@ export class CatListingComponent implements OnInit {
 
   ngOnInit(): void {
     this.catService.getCatList().pipe(catchError((error) => this.handleError(error))).subscribe((response) => {
-      this.cats = response._embedded.cats;
+      this.cats = response;
     })
   }
   private handleError(error: HttpErrorResponse) {

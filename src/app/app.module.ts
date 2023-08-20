@@ -15,6 +15,8 @@ import { CatCreateComponent } from './components/cat-create/cat-create.component
 import { IncidentCreateComponent } from './components/incident-create/incident-create.component'
 import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorComponent } from './components/error/error.component';
+import { LoginComponent } from './components/login/login.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { ErrorComponent } from './components/error/error.component';
     HomeComponent,
     CatCreateComponent,
     IncidentCreateComponent,
-    ErrorComponent
+    ErrorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { ErrorComponent } from './components/error/error.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

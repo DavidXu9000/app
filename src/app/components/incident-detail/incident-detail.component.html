@@ -6,8 +6,8 @@
                 <input class="form-control" type="text" value="{{cat.name}}" [readOnly]="true">
             </div>
 
-            <div *ngIf="cat.pictureId" class="col-12 mb-3">
-                <img src="/catImage/{{cat.id}}" class="img-thumbnail">
+            <div *ngIf="cat.imageUrl" class="col-12 mb-3">
+                <img src="http://localhost:8080/api/cat-image/{{cat.id}}" class="img-thumbnail">
             </div>
 
             <div class="col-auto">

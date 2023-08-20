@@ -1,19 +1,23 @@
 <div class="py-5 bg-body-tertiary">
     <div class="container"> 
         <h1>New Cat</h1>
-        <form class="row" [formGroup]="updateForm">
+        <form class="row" [formGroup]="updateForm" (ngSubmit)="postCat()">
             <div class="col-md-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="name" formControlName="name">
             </div>
             <div class="col-md-6 mb-3">
                 <label for="pictureFile" class="form-label">Picture</label>
-                <input type="file" class="form-control" id="pictureFile" accept="image/png, image/jpg, image/gif"
-                    formControlName="picture" (change)="changeFile($event)">
+                <input #image type="file" class="form-control mb-3" id="pictureFile" accept="image/png, image/jpg, image/gif" (change)="changeFile($event)">
+                <button class="btn btn-primary" type="button" (click)="clearImage()">Clear image</button>
             </div>
+
             <div class="col-auto">
-                <button class="btn btn-danger" type="submit" (submit)="postCat()">Create</button>
+                <button class="btn btn-danger" type="submit">Create</button>
             </div>
         </form>
+    </div>
+    <div class="container" *ngIf="!formValid">
+        <p class="text-danger">Errors exist in the form. Please fix and resubmit.</p>
     </div>
 </div>

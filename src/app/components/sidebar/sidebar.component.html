@@ -28,7 +28,7 @@
         </ul>
         <button *ngIf="isLoggedIn() else loggedout" class="btn btn-outline-danger" type="button" (click)="logout()">Logout</button>
         <ng-template #loggedout>
-          <button class="btn btn-outline-success" type="button" (click)="login()">Login</button>
+          <a routerLink="/login" class="btn btn-outline-success"  >Login</a>
         </ng-template>
       </div>
     </div>
