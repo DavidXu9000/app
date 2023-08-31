@@ -13,7 +13,7 @@
                 <tr *ngFor="let incident of incidents">
                     <td><a routerLink="/cat/{{ incident.catId }}">{{ incident.catName }}</a></td>
                     <td>{{ incident.date }}</td>
-                    <td><a routerLink="/incident/{{ incident.catId }}" class="btn btn-sm btn-outline-secondary">View and Edit</a></td>
+                    <td><a routerLink="/incident/{{ incident.id }}" class="btn btn-sm btn-outline-secondary">View and Edit</a></td>
                 </tr>
             </tbody>
         </table>

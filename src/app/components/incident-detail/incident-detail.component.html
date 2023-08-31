@@ -3,13 +3,17 @@
         <h1>Incident</h1>
         <form class="row" [formGroup]="createForm">
             <div class="col-md-12 mb-3">
-                <input class="form-control" type="text" value="{{cat.name}}" [readOnly]="true">
+                <p *ngIf="cat">{{cat.name}}</p>
             </div>
 
-            <div *ngIf="cat.imageUrl" class="col-12 mb-3">
+            <div *ngIf="cat && cat.imageUrl" class="col-12 mb-3">
                 <img src="http://localhost:8080/api/cat-image/{{cat.id}}" class="img-thumbnail">
             </div>
-
+            <div class="col-md-6 mb-3">
+                <label for="pictureFile" class="form-label">Audio</label>
+                <input #fileinput type="file" class="form-control" id="pictureFile" accept="audio/wav" (change)="changeFile($event)">
+                <button class="btn btn-primary" type="button" (click)="clearImage()">Clear</button>
+            </div>
             <div class="col-auto">
                 <label class="form-label" for="year">Year</label>
                 <input type="text" class="form-control" id="year" formControlName="year">
